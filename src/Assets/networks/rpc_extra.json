@@ -1,0 +1,287 @@
+[
+  {
+    "name": "Local",
+    "chain_id": "5777",
+    "url": "http://localhost:7545",
+    "read_url": "http://localhost:7545",
+    "symbol": "tCRO",
+    "explorer": "",
+    "membership_contract": "0x0587D78A3AC269e80EA2b27b064360f66c3B6342",
+    "cronie_contract": "0xAc90967174379510181D3B433e8F04AA569d531F",
+    "market_contract": "0x2C06Ab39F1E50EEAa815C0b566F06116bdE5403D",
+    "elon_contract": "0xF212D173A24905D8D3670e47aCe81d81FB1ebfFf"
+  },
+  {
+    "name": "Cronos",
+    "chain_id": "25",
+    "write_rpc": "https://evm.cronos.org/",
+    "read_rpc": "https://gateway.nebkas.ro/",
+    "symbol": "CRO",
+    "explorer": "https://cronoscan.com/",
+    "api_base": "https://api.ebisusbay.com/",
+    "membership_contract": "0x8d9232Ebc4f06B7b8005CCff0ca401675ceb25F5",
+    "cronie_contract": "0xD961956B319A10CBdF89409C0aE7059788A4DaBb",
+    "market_contract": "0xA5d020b4418d534Dc697A51bec54bE0552bcf51E",
+    "elon_contract": "0x3Bf0a68a03fE82A5D21445f3a2306bB012dd50D9",
+    "known_contracts": [
+      {
+        "name": "EbisusBay VIP",
+        "onChain": false,
+        "address": "0x8d9232Ebc4f06B7b8005CCff0ca401675ceb25F5",
+        "multiToken": true,
+        "id": 2,
+        "listable": true
+      },
+      {
+        "name": "EbisusBay Founder",
+        "onChain": false,
+        "address": "0x8d9232Ebc4f06B7b8005CCff0ca401675ceb25F5",
+        "multiToken": true,
+        "id": 1,
+        "listable": false
+      },
+      {
+        "name": "Cronies",
+        "multiToken": false,
+        "address": "0xD961956B319A10CBdF89409C0aE7059788A4DaBb",
+        "onChain": true,
+        "listable": true
+      },
+      {
+        "name": "CronosChimp",
+        "multiToken": false,
+        "address": "0x562f021423d75a1636db5be1c4d99bc005ccebfe",
+        "onChain": false,
+        "listable": false
+      },
+      {
+        "name": "CroPunks - Punks on Cronos",
+        "multiToken": false,
+        "address": "0xaec3adc72e453ecb6009aa48e0ac967941b30c4e",
+        "onChain": false,
+        "listable": true
+      },
+      {
+        "name": "CRO CROW",
+        "multiToken": false,
+        "address": "0xe4ab77ed89528d90e6bcf0e1ac99c58da24e79d5",
+        "onChain": false,
+        "listable": true
+      },
+      {
+        "name": "Cronos Punk",
+        "multiToken": false,
+        "address": "0x16134B610f15338B96D8DF52EE63553dD2B013A2",
+        "onChain": false,
+        "listable": true
+      },
+      {
+        "name": "CROCOSNFT",
+        "multiToken": false,
+        "address": "0x18b73D1f9e2d97057deC3f8D6ea9e30FCADB54D7",
+        "onChain": false,
+        "listable": true
+      },
+      {
+        "name": "PetitePlanetsNFT",
+        "multiToken": false,
+        "address": "0xEdb2Eb556765F258a827f75Ad5a4d9AEe9eA7118",
+        "onChain": false,
+        "listable": true
+      },
+      {
+        "name": "CRODrakes",
+        "multiToken": false,
+        "address": "0xbed280E63B3292a5faFEC896F9a0256d12552170",
+        "onChain": false,
+        "listable": true
+      },
+      {
+        "name": "SupBirds",
+        "multiToken": false,
+        "address": "0x48879b93AbCE2B69F9792584f8891BCe30C1BF28",
+        "onChain": false,
+        "listable": true
+      },
+      {
+        "name": "Crownos",
+        "multiToken": false,
+        "address": "0x704f0990CE1997ED5110e7415cc7aBE090006C1e",
+        "onChain": false,
+        "listable": false
+      },
+      {
+        "name": "Crypto Collage Collection",
+        "multiToken": false,
+        "address": "0x64274Fce5bd057E6416f57A5EdC8a3195E153022",
+        "onChain": false,
+        "listable": true
+      },
+      {
+        "name": "Petite Planets Gen 1 Governor Medals",
+        "multiToken": false,
+        "address": "0xCaa648e8f8fE3D4705BC3D9B0d4d1068509f1014",
+        "onChain": false,
+        "listable": true
+      },
+      {
+        "name": "Day One Supporter",
+        "multiToken": false,
+        "address": "0xf711e40d09BF4709c32eb967243872700fe80CC7",
+        "onChain": false,
+        "listable": true
+      },
+      {
+        "name": "Cronostars",
+        "multiToken": false,
+        "address": "0x03741A724d0E15F8FD052DAa56633a69090D20a3",
+        "onChain": false,
+        "listable": true
+      },
+      {
+        "name": "CROPhones",
+        "multiToken": false,
+        "address": "0x8D075e99EAE789B41b6ac8003c9bfacFb42dFf72",
+        "onChain": false,
+        "listable": true
+      },
+      {
+        "name": "CronosEyezNFT",
+        "multiToken": false,
+        "address": "0xCE5caC89E25DBCCD590090994919a5Ef53bBD6C0",
+        "onChain": false,
+        "listable": true
+      },
+      {
+        "name": "CROstmas Gnome",
+        "multiToken": false,
+        "address": "0xE8D59fB0259F440F5f17cE29975F98D728614f18",
+        "onChain": false,
+        "listable": true
+      },
+      {
+        "name": "Crosmonauts",
+        "multiToken": false,
+        "address": "0xDFab622fC4E5CE1420F83cf38E52312f33849a0A",
+        "onChain": false,
+        "listable": true
+      },
+      {
+        "name": "Pingoo Black Friday Ticket",
+        "multiToken": false,
+        "address": "0x948E8c6E0c9035f7372a10e10f9f71cC81341053",
+        "onChain": false,
+        "listable": false
+      },
+      {
+        "name": "Mad Meerkat",
+        "multiToken": false,
+        "address": "0x89dBC8Bd9a6037Cbd6EC66C4bF4189c9747B1C56",
+        "onChain": false,
+        "listable": false
+      },
+      {
+        "name": "Elon's Adventure",
+        "multiToken": false,
+        "address": "0x3Bf0a68a03fE82A5D21445f3a2306bB012dd50D9",
+        "onChain": false,
+        "listable": true
+      },
+      {
+        "name": "GameArtNFT ",
+        "multiToken": false,
+        "address": "0x6213e64dc1c3c9C56E23516b4853bb36674f6272",
+        "onChain": false,
+        "listable": true
+      },
+      {
+        "name": "SneakyPenguinsClub",
+        "multiToken": false,
+        "address": "0xb9f31aC76D21e529e41B4dB61af3ab7E2ec026D5",
+        "onChain": false,
+        "listable": false
+      },
+      {
+        "name": "CroBits",
+        "multiToken": false,
+        "address": "0x527db60A25a5FDf2529815f3cE7AeA4C95078d9c",
+        "onChain": false,
+        "listable": true
+      },
+      {
+        "name": "CronosRedPanda",
+        "multiToken": false,
+        "address": "0xdc29c27b6adE7b172359EC1746a02B3304e974d8",
+        "onChain": false,
+        "listable": true
+      },
+      {
+        "name": "Genesis Rock",
+        "multiToken": true,
+        "id": 1,
+        "address": "0x68ec010Cf044CbAe1aCc213D043d394E620c641D",
+        "onChain": false,
+        "listable": true
+      }
+    ]
+  },
+  {
+    "name": "Cronos Testnet",
+    "chain_id": "338",
+    "write_rpc": "https://evm-t3.cronos.org/",
+    "read_rpc": "https://evm-t3.cronos.org/",
+    "symbol": "tCRO",
+    "explorer": "https://cronos.org/explorer/testnet3/",
+    "api_base": "http://localhost:5000/",
+    "membership_contract": "0x3F1590A5984C89e6d5831bFB76788F3517Cdf034",
+    "market_contract": "0x15876C450638158F48392F01dE2CEa51eccc7840",
+    "cronie_contract": "0xe9DCa9E03F31CBD538A19a89eA2cA3684AF2788f",
+    "elon_contract": "0x2fE1f2722fa215A68b92aECaD425259C0D645972",
+    "known_contracts": [
+      {
+        "name": "EbisusBay VIP",
+        "onChain": false,
+        "address": "0x3F1590A5984C89e6d5831bFB76788F3517Cdf034",
+        "multiToken": true,
+        "id": 2,
+        "listable": true
+      },
+      {
+        "name": "EbisusBay Founder",
+        "onChain": false,
+        "address": "0x3F1590A5984C89e6d5831bFB76788F3517Cdf034",
+        "multiToken": true,
+        "id": 1,
+        "listable": false
+      },
+      {
+        "name": "Basic NFT",
+        "multiToken": false,
+        "address": "0x2710Bd198f363d2561795f13b82D2017b4cbFC78",
+        "onChain": false,
+        "listable": true
+      },
+      {
+        "name": "Cronos Warrior",
+        "multiToken": false,
+        "address": "0x6777a24aef6374265B4A900c9Db57673cFF426Ab",
+        "onChain": false,
+        "listable": true
+      },
+      {
+        "name": "Cronies",
+        "multiToken": false,
+        "address": "0xe9DCa9E03F31CBD538A19a89eA2cA3684AF2788f",
+        "onChain": true,
+        "listable": true
+      },
+      {
+        "name": "Elon's Adventure",
+        "multiToken": false,
+        "address": "0x2fE1f2722fa215A68b92aECaD425259C0D645972",
+        "onChain": false,
+        "listable": true
+      }
+    ]
+  }
+]

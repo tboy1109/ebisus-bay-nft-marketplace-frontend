@@ -1,0 +1,174 @@
+definitions:
+  updateOS: &update
+    apt-get update
+  printVersion: &version
+    node --version && npm --version
+  build: &build
+    CI=false REACT_APP_DEVTOOLS=$REACT_APP_DEVTOOLS REACT_APP_SITE24X7_KEY=$REACT_APP_SITE24X7_KEY REACT_APP_SENTRY_DSN=$REACT_APP_SENTRY_DSN npm run build
+
+  steps:
+    - step: &test
+        name: Test
+        image: node:16
+        runs-on:
+          - 'self.hosted'
+          - 'linux'
+          - 'web'
+        size: 1x
+        script:
+          - *update
+          - *version
+          - npm install --no-audit
+          #- npm run test
+        artifacts:
+          - node_modules/**
+    - step: &deploy
+        name: Deploy
+        image: amazon/aws-cli
+        deployment: changethis
+        runs-on:
+          - 'self.hosted'
+          - 'linux'
+          - 'web'
+        size: 1x
+        #trigger: manual
+        clone:
+          enabled: false
+        script:
+          # AWS S3 deploy
+          - pipe: atlassian/aws-s3-deploy:1.1.0
+            variables:
+              AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+              AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+              AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+              S3_BUCKET: $S3_BUCKET
+              LOCAL_PATH: 'build'
+              DELETE_FLAG: 'true'
+          # Custom No-Store metadata for index.html
+          - aws s3 cp build/index.html s3://${S3_BUCKET}/index.html --metadata-directive REPLACE --cache-control No-Store
+          # AWS CloudFront create invalidation
+          - pipe: atlassian/aws-cloudfront-invalidate:0.6.0
+            variables:
+              AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+              AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+              AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+              DISTRIBUTION_ID: $CF_DIST_ID
+              PATHS: '/img/* /static/* /404.html /android-chrome-192x192.png /android-chrome-512x512.png /apple-touch-icon.png	/asset-manifest.json /browserconfig.xml /favicon-16x16.png /favicon-32x32.png /favicon.ico /favicon.png /index.html /manifest.json /mstile-150x150.png /robots.txt /safari-pinned-tab.svg /site.webmanifest /tos.html /vector-face.svg'
+
+pipelines:
+  custom: # Pipelines that can only be triggered manually or by schedule
+    deploy-to-sandbox:
+      - step: *test
+      - step:
+          name: Build
+          image: node:16
+          deployment: SandboxBuildStep
+          runs-on:
+            - 'self.hosted'
+            - 'linux'
+            - 'web'
+          size: 1x
+          script:
+            - *update
+            - *version
+            # RPC config
+            - cp -p ./src/Assets/networks/rpc_config_dev.json ./src/Assets/networks/rpc_config.json
+            # Build frontend
+            - *build
+          artifacts:
+            - build/**
+      - step:
+          <<: *deploy
+          deployment: Sandbox
+    deploy-to-testnet:
+      - step: *test
+      - step:
+          name: Build
+          image: node:16
+          deployment: TestnetBuildStep
+          runs-on:
+            - 'self.hosted'
+            - 'linux'
+            - 'web'
+          size: 1x
+          script:
+            - *update
+            - *version
+            # RPC config
+            - cp -p ./src/Assets/networks/rpc_config_testnet.json ./src/Assets/networks/rpc_config.json
+            # Build frontend
+            - *build
+          artifacts:
+            - build/**
+      - step:
+          <<: *deploy
+          deployment: Testnet
+  branches:
+    testnet:
+      - step: *test
+      - step:
+          name: Build
+          image: node:16
+          runs-on:
+            - 'self.hosted'
+            - 'linux'
+            - 'web'
+          size: 1x
+          script:
+            - *update
+            - *version
+            # RPC config
+            - cp -p ./src/Assets/networks/rpc_config_testnet.json ./src/Assets/networks/rpc_config.json
+            # Build frontend
+            - *build
+          artifacts:
+            - build/**
+      - step:
+          <<: *deploy
+          deployment: Testnet
+    dev:
+      - step: *test
+      - step:
+          name: Build
+          image: node:16
+          deployment: DevelopmentBuildStep
+          runs-on:
+            - 'self.hosted'
+            - 'linux'
+            - 'web'
+          size: 1x
+          script:
+            - *update
+            - *version
+            # RPC config
+            - cp -p ./src/Assets/networks/rpc_config_dev.json ./src/Assets/networks/rpc_config.json
+            # Build frontend
+            - *build
+          artifacts:
+            - build/**
+      - step:
+          <<: *deploy
+          deployment: Development
+    prod:
+      - step: *test
+      - step:
+          name: Build
+          image: node:16
+          deployment: ProductionBuildStep
+          runs-on:
+            - 'self.hosted'
+            - 'linux'
+            - 'web'
+          size: 1x
+          script:
+            - *update
+            - *version
+            # RPC config
+            #- cp -p ./src/Assets/networks/rpc_config.json ./src/Assets/networks/rpc_config.json
+            # Build frontend
+            - *build
+          artifacts:
+            - build/**
+      - step:
+          <<: *deploy
+          deployment: Production

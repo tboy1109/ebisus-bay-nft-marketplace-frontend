@@ -1,0 +1,55 @@
+.bitpixel_back {
+  text-align: center;
+  background-image: url('../../../Assets/cronosverse/Bit-back.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+}
+
+.canvas {
+  margin-top: 20%;
+  margin-bottom: 15%; 
+  width: 100%; 
+  display: flex; 
+  justify-content: center;
+}
+
+.canvasBack {
+  left: 0px;
+  top: 0px;
+  z-index: 0;
+}
+
+.canvasFront {
+  z-index: 1;
+  position: absolute;
+}
+
+.tip_modal {
+  position: fixed; 
+  background-color: white; 
+  border-radius: 5px;
+  border: 1px solid black; 
+  padding: 10px; 
+  z-index: 3;
+}
+
+.tip_modal .modal_content {
+  display: flex; 
+  justify-content: flex-start
+}
+
+.tip_modal .modal_content .tile_img {
+  width: 40px; 
+  height: 40px; 
+  border-radius:5px; 
+  margin-right: 10px;
+}
+
+.tip_modal .modal_content .tile_items {
+  display:flex; 
+  flex-direction: column; 
+  align-items: flex-start
+}

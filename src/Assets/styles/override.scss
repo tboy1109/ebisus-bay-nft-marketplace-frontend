@@ -1,0 +1,511 @@
+/* Copied colors from style.scss */
+$color: #218cff;
+$gray: #bbb;
+$black: #111;
+$white: #fff;
+$color_more: #35669e;
+
+
+
+// fix when h-vh causes overlapping
+// https://ebisusbay.atlassian.net/browse/WEB-396
+.h-min-100-vh {
+    height: unset!important;
+    min-height: 100vh;
+}
+
+//  to fix the footer to the bottom of page when there is not enough content.
+body > div#root > div.wraper {
+    //  first child is header
+    //  second element is component's top level div placed by router.
+    & > div:nth-child(2) {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+
+        //  first child element is header picture and title
+        //  Content: second child element is class with .container class
+        & > section:nth-child(2) {
+            flex: 1;
+        }
+    }
+}
+
+//  Hide partners in other places than homepage.
+footer {
+    &[data-is-in-home-page=false] {
+        padding-top: 0;
+        & > div:first-child {
+            display: none;
+        }
+        & > div:last-child {
+            border-top: none;
+            margin-top: 0;
+        }
+    }
+}
+
+
+/* Hot Collections Avatar for Blockies */
+.slick-slide canvas {
+    display: block;
+}
+.nft_coll_pp canvas {
+    width: 60px;
+    height: auto;
+    border: solid 5px #FFFFFF;
+    background: #FFFFFF;
+    border-radius: 100%;
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
+}
+.nft_coll canvas {
+    transition: 0.7s;
+}
+.nft_coll {
+    canvas{
+        transition: .7s;
+    }
+    &:hover{
+        canvas{
+            transform: scale(1.05);
+            transition: .7s;
+        }
+    }
+}
+
+/* Header Avatar for Blockies */
+.de-menu-profile canvas {
+    width: 38px;
+    border-radius: 30px;
+    -moz-border-radius: 30px;
+    -webkit-border-radius: 30px;
+    margin-left: 5px;
+    margin-bottom: 2px;
+}
+canvas {
+    vertical-align: middle;
+}
+
+/* Rankings Avatar for Blockies */
+.coll_list_pp {
+    canvas {
+        width: 100%;
+        border-radius: 100% !important;
+        position: relative;
+        z-index: 1;
+    }
+}
+
+/* NFT Details Avatar for Blockies */
+.author_list_pp {
+    &:hover canvas{
+        padding: 3px;
+        -webkit-box-shadow: 0px 0px 0px 2px $color;
+        transition: .3s;
+    }
+}
+.author_list_pp canvas {
+    width: 100%;
+    border-radius: 100% !important;
+    -moz-border-radius: 100% !important;
+    -webkit-border-radius: 100% !important;
+    position: relative;
+    z-index: 1;
+}
+
+/* NFT Details Avatar for Blockies */
+.p_list_pp canvas {
+    width: 100%;
+    border-radius: 100% !important;
+    cursor: pointer;
+}
+
+/* User menu buttons */
+.btn_menu {
+    font-size: 12px;
+    padding: 4px 10px;
+    line-height: 1em;
+    border: solid 1px #dddddd;
+    display: inline-block;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    outline: none;
+    &:hover {
+        color: $white;
+        background: $color;
+        border: solid 1px $color;
+    }
+}
+
+/* Pointer for clicking card images */
+.nft__item_preview {
+    cursor: pointer;
+}
+
+/* Collection Page Avatar for Blockies */
+.d_coll .profile_avatar canvas {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+.profile_avatar canvas {
+    border-radius: 100%;
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
+    width: 150px;
+    height: auto;
+}
+.d_coll .profile_avatar canvas{
+    display: inline-block;
+    margin-top: -100px;
+    margin-bottom: 30px;
+}
+
+/* Collection Page Avatar outline */
+.d_coll .profile_avatar img, .d_coll .profile_avatar canvas {
+    background: white;
+    box-shadow: 0 0 0 1pt grey;
+}
+
+
+.nft_sold__item {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 20px;
+    margin: 10px;
+    border: solid 1px #ddd;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    margin-bottom: 25px;
+    background: #ffffff;
+    transition: .7s;
+    cursor: pointer;
+    &:hover{
+        box-shadow: 2px 2px 30px 0px rgba(10, 10, 10, 0.1);
+        transition: .7s;
+    }
+}
+
+/* Put dropdowns behind wallet connect popup */
+.items_filter .dropdownSelect {
+    z-index: 2 !important;
+}
+
+/* Fix equal height issue in traits grid */
+.nft_attr {
+    margin-bottom: 0;
+    height: 100%;
+}
+
+/* Remove blue background from avatar images */
+.author_list_pp {
+    background: none;
+}
+
+
+.nft-home-carousel{
+    width: 100%;
+    .slick-prev{
+        left: 10px;
+        display: block;
+        width: 40px;
+        height: 60px;
+        overflow: hidden;
+        line-height: 60px;
+        background: none !important;
+        border-radius: 0;
+        z-index: 1;
+        transition: all 0.3s ease;
+        &::before {
+            display: block;
+            content: "\f053" !important;
+            font-size: .9rem;
+            font-family: FontAwesome !important;
+            font-style: normal;
+            font-weight: normal;
+            color: $black;
+            position: relative;
+            line-height: 60px;
+            width: 60px;
+            height: 60px;
+            padding-left: 20px;
+            border-radius: 60px;
+            background: $white;
+            left: -25px;
+            opacity: 1;
+        }
+    }
+    .slick-next{
+        right: 9px;
+        display: block;
+        width: 40px;
+        height: 60px;
+        line-height: 60px;
+        background: none !important;
+        border-radius: 0;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        &::before {
+            display: block;
+            content: "\f054" !important;
+            font-size: .9rem;
+            font-family: FontAwesome !important;
+            font-style: normal;
+            font-weight: normal;
+            color: $black;
+            position: relative;
+            line-height: 60px;
+            width: 60px;
+            height: 60px;
+            padding-right: 20px;
+            border-radius: 60px;
+            background: $white;
+            right: -4px;
+            opacity: 1;
+        }
+    }
+    &:hover{
+        .slick-prev, .slick-next{
+            opacity: 1;
+            transition: all 0.3s ease;
+        }
+    }
+    .blockquote{
+        font-size: .98rem;
+        text-align: left;
+        margin: 15px 30px 30px;
+        display: flex;
+        .fa {
+            font-size: 1.3rem;
+            display: inline-block;
+            margin: 5px 15px 0 0;
+            color: $white;
+            height: max-content;
+        }
+        p{
+
+            line-height: 1.8;
+            display: inline-block;
+        }
+        .bytesti {
+            font-size: .9rem;
+            font-weight: 400;
+        }
+    }
+    .slick-dots {
+        bottom: -40px;
+        li.slick-active button::before {
+            opacity: .75;
+            color: $white;
+        }
+        li button::before {
+            color: $white;
+        }
+    }
+}
+
+/* Custom Listing Cards */
+.eb-nft__card {
+    border: solid 1px #ddd;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    background: #ffffff;
+    transition: .7s;
+
+    img {
+        width: 100%;
+        height: auto !important;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        -moz-border-radius-topleft: 8px;
+        -moz-border-radius-topright: 8px;
+        -webkit-border-top-left-radius: 8px;
+        -webkit-border-top-right-radius: 8px;
+    }
+
+    .card-footer {
+        background-color: rgba(255,255,255,.03);
+        border-top: none;
+    }
+
+    .card-img-top {
+        width: 100% !important;
+    }
+    .card-img-top.marketplace {
+        object-fit: contain;
+    }
+    .card-img-top.collection {
+        object-fit: cover;
+    }
+    .bg-rarity {
+        background-image: linear-gradient(to right, #35669e, #218cff);
+    }
+    .bg-rarity-none {
+        background-image: linear-gradient(to right, #e0e0e0, #e4e5e6);
+        color: #000;
+    }
+    &:hover{
+        box-shadow: 2px 2px 30px 0px rgba(10, 10, 10, 0.1);
+        transition: .7s;
+    }
+
+    @media (min-width: 576px) {
+        .card-img-top.marketplace {
+            width: 100% !important;
+            max-height: 222px !important;
+            object-fit: cover !important;
+        }
+    }
+    @media (min-width: 768px) {
+        .card-img-top.marketplace {
+            max-height: 330px !important;
+            object-fit: contain !important;
+        }
+    }
+    @media (min-width: 992px) {
+        .card-img-top.marketplace {
+            max-height: 294px !important;
+            object-fit: contain !important;
+        }
+    }
+    @media (min-width: 1200px) {
+        .card-img-top.marketplace {
+            max-height: 261px !important;
+            object-fit: contain !important;
+        }
+    }
+    @media (min-width: 1400px) {
+        .card-img-top.marketplace {
+            max-height: 306px !important;
+            object-fit: contain !important;
+        }
+    }
+}
+
+/* FontAwesome 5 SVG icon overrides */
+.eb-social-icons .eb-icon_stack {
+    .layer-1 {
+        border-radius: 5px;
+        color: $color_more
+    }
+}
+.profile_avatar .d_profile_img .eb-avatar_badge {
+    margin: -20px 0 0 80px;
+    display: block;
+    position: absolute;
+    padding: 10px;
+}
+.d_coll .profile_avatar .eb-avatar_badge {
+    margin-right: -30px;
+}
+#eb-scroll-to-top {
+    cursor: pointer;
+    width: max-content;
+    height: max-content;
+    position: fixed;
+    right: 10px;
+    z-index: 999;
+    &.init{
+        bottom: -60px;
+        transition: all 0.3s ease;
+    }
+    &.show{
+        bottom: 15px;
+        transition: all 0.3s ease;
+    }
+    div{
+        background: none !important;
+    }
+}
+
+/*react-slick FontAwesome 5 fix.*/
+.slick-slider > .slick-arrow::before {
+    content: unset !important;
+}
+
+.slick-slider > .slick-arrow {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.slick-slider > .slick-arrow > svg {
+    width: 1rem !important;
+    height: 1rem !important;
+    opacity: 1;
+    visibility: visible;
+    color: black;
+}
+
+.eb-de_countdown {
+    font-size: .8rem;
+    right: 20px;
+    background: #ffffff;
+    padding: 6px 10px;
+    border-radius: 30px;
+    -moz-border-radius: 30px;
+    -webkit-border-radius: 30px;
+    border: solid 2px $color;
+    z-index: 1;
+    color: #0d0c22;
+    margin: 4px 4px;
+    .Clock-days{
+        font-weight: bold;
+        display: inline-block;
+        margin-right: 5px;
+    }
+    .Clock-hours{
+        font-weight: bold;
+        display: inline-block;
+        margin-right: 5px;
+    }
+    .Clock-minutes{
+        font-weight: bold;
+        display: inline-block;
+        margin-right: 5px;
+    }
+    .Clock-seconds{
+        font-weight: bold;
+        display: inline-block;
+        margin-right: 5px;
+    }
+}
+
+.mainside-warning{
+    width: max-content;
+    padding-left: 0;
+    padding-right: 0;
+    .de-menu-profile {
+        position: relative;
+        cursor: pointer;
+    }
+}
+
+.navbar {
+    @media only screen and (max-width: 1199px) {
+        &.navbar {
+            position: relative;
+            .mainside-warning{
+                position: absolute;
+                right: 90px;
+                top: 12px;
+            }
+        }
+    }
+    @media only screen and (max-width: 641px) {
+        &.navbar{
+            .mainside-warning {
+                a{
+                    font-size: 13px;
+                    padding: 4px 10px;
+                }
+            }
+        }
+    }
+}

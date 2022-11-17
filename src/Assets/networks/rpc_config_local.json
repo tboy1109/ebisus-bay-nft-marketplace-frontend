@@ -1,0 +1,10 @@
+{
+  "name": "Local",
+  "chain_id": "5777",
+  "url": "http://localhost:7545",
+  "symbol": "tCRO",
+  "explorer": "",
+  "membership_contract": "0x0587D78A3AC269e80EA2b27b064360f66c3B6342",
+  "cronie_contract": "0xAc90967174379510181D3B433e8F04AA569d531F",
+  "market_contract": "0x2C06Ab39F1E50EEAa815C0b566F06116bdE5403D"
+}
